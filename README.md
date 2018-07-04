@@ -108,7 +108,9 @@ $ sysctl -p
 {%youtube lCYEdrSsaGs %}
 擴展功能：
 1. LVS
-2. 包裝成docker(包括網卡和ip設定自動化)
+2. 包裝成docker(包括網卡設定自動化)
+image包含keepalived,apache2,jdk,net-tools,vim
+https://hub.docker.com/r/junanyeap/lsa_commit/
 
 ```
 // 補充
