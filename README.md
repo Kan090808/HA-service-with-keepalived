@@ -33,6 +33,7 @@ Keepalived的实现基于VRRP（Virtual Router Redundancy Protocol，虚拟路�
   如下图所示： 有两个路由器，两个网关，从两个路由器中选举出一个路由器作为主路由器，其他的都是备份路由器，主路由器负责发转发数据报，而备份路由器处于空闲状态，当主路由器出现故障后，备份路由器会成为主路由器，代替主路由器实现转发功能。
   
 ![](https://i.imgur.com/oOcCLkB.png)
+
 虚拟路由器由多个VRRP路由器组成，每个VRRP路由器都有各自的IP和共同的VRID(0-255)，其中一个VRRP路由器通过竞选成为MASTER，占有VIP，对外提供路由服务，其他成为BACKUP，MASTER以IP组播（组播地址：224.0.0.18）形式发送VRRP协议包，与BACKUP保持心跳连接，若MASTER不可用（或BACKUP接收不到VRRP协议包），则BACKUP通过竞选产生新的MASTER并继续对外提供路由服务，从而实现高可用。
 
 ## [Keepalived vs Heartbeat](https://blog.csdn.net/yunhua_lee/article/details/9788433)
